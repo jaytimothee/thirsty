@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+
+    <ion-title>Glass Type</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <div *ngIf="glassType">
+           <ion-list>
+              <ion-item *ngFor="let glass of glassType" detail lines="none" (click)="navigate(glass.strGlass)">
+                <ion-label>
+                    {{glass.strGlass}}
+                </ion-label>
+              </ion-item>
+            </ion-list>
+        </div>
+         
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

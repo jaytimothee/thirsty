@@ -1,0 +1,20 @@
+ion-content {
+  --background: linear-gradient(to left, #37ecba 0%, #72afd3 100%);
+}
+ion-item {
+  --background: linear-gradient(to left, #37ecba 0%, #72afd3 100%);
+}
+
+.item-content {
+  display: flex;
+  img {
+    width: 50px;
+    height: 50px;
+  }
+
+  h5 {
+    font-size: 1em;
+    color: white;
+    margin-top: 25px;
+  }
+}

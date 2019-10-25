@@ -1,0 +1,47 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      Drink Ingriedients
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div *ngIf="drink">
+    <ion-card color="light">
+      <ion-card-header>
+        <img [src]="drink.strDrinkThumb" />
+        <ion-card-content>
+          <ion-card-title>{{ drink.strDrink }}</ion-card-title>
+        </ion-card-content>
+      </ion-card-header>
+    </ion-card>
+    <ion-list>
+      <ion-item>
+        <div class="ing-label">
+          <ion-label>{{ drink.strIngredient1 }}</ion-label>
+          <ion-label>{{ drink.strMeasure1 }}</ion-label>
+        </div>
+      </ion-item>
+      <ion-item>
+        <div class="ing-label">
+          <ion-label>{{ drink.strIngredient2 }}</ion-label>
+          <ion-label>{{ drink.strMeasure2 }}</ion-label>
+        </div>
+      </ion-item>
+      <ion-item>
+        <div class="ing-label">
+          <ion-label>{{ drink.strIngredient3 }}</ion-label>
+          <ion-label>{{ drink.strMeasure3 }}</ion-label>
+        </div>
+      </ion-item>
+      <ion-text class="ion-text-center" color="dark">
+          <h5>{{drink.strInstructions}}</h5>
+        </ion-text>
+    </ion-list>
+
+  </div>
+</ion-content>

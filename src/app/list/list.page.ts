@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-list',
@@ -6,34 +7,40 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['list.page.scss']
 })
 export class ListPage implements OnInit {
-  private selectedItem: any;
-  private icons = [
-    'flask',
-    'wifi',
-    'beer',
-    'football',
-    'basketball',
-    'paper-plane',
-    'american-football',
-    'boat',
-    'bluetooth',
-    'build'
-  ];
-  public items: Array<{ title: string; note: string; icon: string }> = [];
-  constructor() {
-    for (let i = 1; i < 11; i++) {
-      this.items.push({
-        title: 'Item ' + i,
-        note: 'This is item #' + i,
-        icon: this.icons[Math.floor(Math.random() * this.icons.length)]
-      });
-    }
+  public categories: Array<{ cat: string, icon: string, desc: string, nav: string }> = [];
+  constructor(private router: Router) {
+    this.categories = [
+      {
+        nav: 'glass-type',
+        cat: 'Glass Type',
+        icon: 'wine',
+        desc: 'List of drinks by glass type. Jar, Pitcher, Mug, Wine Glass, etc....'
+      },
+      {
+        nav: 'categories',
+        cat: 'Categories',
+        icon: 'keypad',
+        desc: 'View drinks by a list of categories'
+      },
+      {
+        nav: 'ingredients',
+        cat: 'Ingredients',
+        icon: 'basket',
+        desc: 'Looking for a certain tase? Look up drinks by ingredients'
+      },
+      {
+        nav: 'alcohol-level',
+        cat: 'Alcohol Level',
+        icon: 'beer',
+        desc: 'Wether you want to relax or forget Henny thing is possible List drinks by alcohol level'
+      },
+    ];
+  }
+
+  navigete(nav: string){
+    this.router.navigateByUrl(`list/${nav}`)
   }
 
   ngOnInit() {
   }
-  // add back when alpha.4 is out
-  // navigate(item) {
-  //   this.router.navigate(['/list', JSON.stringify(item)]);
-  // }
 }
